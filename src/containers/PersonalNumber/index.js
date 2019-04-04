@@ -443,11 +443,11 @@ class PersonalNumber extends Component {
         <View
           style={{
             backgroundColor: '#fff',
-            paddingTop: WINDOW_HEIGHT / 30,
+            paddingTop: WINDOW_HEIGHT / 25,
             paddingBottom: WINDOW_HEIGHT / 50
           }}>
           <TouchableOpacity
-            style={{ flexDirection: 'row' }}
+            style={{ flexDirection: 'row', alignItems: 'center' }}
             onPress={() => {
               this.setState({ QRtext: '' })
               Actions.pop()
@@ -473,7 +473,7 @@ class PersonalNumber extends Component {
               size={25}
               color="#008FAC"
             />
-            <Text style={{ fontSize: 20, color: '#83BFBC', marginLeft: 10 }}>
+            <Text style={{ fontSize: 17, color: '#83BFBC', marginLeft: 10 }}>
               {strings.back}
             </Text>
           </TouchableOpacity>
@@ -486,7 +486,7 @@ class PersonalNumber extends Component {
               backgroundColor: '#ECEFF1',
               marginBottom: WINDOW_HEIGHT / 10
             }}>
-            <Text style={{ fontSize: 30, fontWeight: 'bold', color: 'grey' }}>
+            <Text style={{ fontSize: 17, fontWeight: 'bold', color: 'grey' }}>
               {strings.personalNumberScreenString1}
             </Text>
           </View>
@@ -499,73 +499,73 @@ class PersonalNumber extends Component {
             backgroundColor: '#ECEFF1',
             flexDirection: 'row'
           }}>
-          <View style={{ marginLeft: 20 }}>
+          <View style={{ marginLeft: 10 }}>
             <Text style={styles.fontTextSize}>Y</Text>
             <Text style={[styles.fontTextSize, { color: valueArr[0].color }]}>
               {valueArr[0].value}
             </Text>
           </View>
-          <View style={{ marginLeft: 20 }}>
+          <View style={{ marginLeft: 10 }}>
             <Text style={styles.fontTextSize}>Y</Text>
             <Text style={[styles.fontTextSize, { color: valueArr[1].color }]}>
               {valueArr[1].value}
             </Text>
           </View>
-          <View style={{ marginLeft: 20 }}>
+          <View style={{ marginLeft: 10 }}>
             <Text style={styles.fontTextSize}>Y</Text>
             <Text style={[styles.fontTextSize, { color: valueArr[2].color }]}>
               {valueArr[2].value}
             </Text>
           </View>
-          <View style={{ marginLeft: 20 }}>
+          <View style={{ marginLeft: 10 }}>
             <Text style={styles.fontTextSize}>Y</Text>
             <Text style={[styles.fontTextSize, { color: valueArr[3].color }]}>
               {valueArr[3].value}
             </Text>
           </View>
-          <View style={{ marginLeft: 50 }}>
+          <View style={{ marginLeft: 25 }}>
             <Text style={styles.fontTextSize}>M</Text>
             <Text style={[styles.fontTextSize, { color: valueArr[4].color }]}>
               {valueArr[4].value}
             </Text>
           </View>
-          <View style={{ marginLeft: 20 }}>
+          <View style={{ marginLeft: 10 }}>
             <Text style={styles.fontTextSize}>M</Text>
             <Text style={[styles.fontTextSize, { color: valueArr[5].color }]}>
               {valueArr[5].value}
             </Text>
           </View>
-          <View style={{ marginLeft: 50 }}>
+          <View style={{ marginLeft: 25 }}>
             <Text style={styles.fontTextSize}>D</Text>
             <Text style={[styles.fontTextSize, { color: valueArr[6].color }]}>
               {valueArr[6].value}
             </Text>
           </View>
-          <View style={{ marginLeft: 20 }}>
+          <View style={{ marginLeft: 10 }}>
             <Text style={styles.fontTextSize}>D</Text>
             <Text style={[styles.fontTextSize, { color: valueArr[7].color }]}>
               {valueArr[7].value}
             </Text>
           </View>
-          <View style={{ marginLeft: 50 }}>
+          <View style={{ marginLeft: 25 }}>
             <Text style={styles.fontTextSize}>N</Text>
             <Text style={[styles.fontTextSize, { color: valueArr[8].color }]}>
               {valueArr[8].value}
             </Text>
           </View>
-          <View style={{ marginLeft: 20 }}>
+          <View style={{ marginLeft: 10 }}>
             <Text style={styles.fontTextSize}>N</Text>
             <Text style={[styles.fontTextSize, { color: valueArr[9].color }]}>
               {valueArr[9].value}
             </Text>
           </View>
-          <View style={{ marginLeft: 20 }}>
+          <View style={{ marginLeft: 10 }}>
             <Text style={styles.fontTextSize}>N</Text>
             <Text style={[styles.fontTextSize, { color: valueArr[10].color }]}>
               {valueArr[10].value}
             </Text>
           </View>
-          <View style={{ marginLeft: 20 }}>
+          <View style={{ marginLeft: 10 }}>
             <Text style={styles.fontTextSize}>N</Text>
             <Text style={[styles.fontTextSize, { color: valueArr[11].color }]}>
               {valueArr[11].value}
@@ -722,12 +722,12 @@ const styles = StyleSheet.create({
     backgroundColor: '#FDA110'
   },
   fontTextSize: {
-    fontSize: 30,
+    fontSize: 17,
     fontWeight: 'bold',
     color: 'grey'
   },
   personalNoTextDesign: {
-    fontSize: 40,
+    fontSize: 17,
     fontWeight: 'bold',
     color: 'grey'
   },

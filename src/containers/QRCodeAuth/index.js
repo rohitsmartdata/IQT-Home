@@ -48,6 +48,8 @@ import { NativeModules, AppState } from 'react-native'
 import QRCode from 'react-native-qrcode'
 import { strings } from '../../constants/strings'
 import DropdownAlert from 'react-native-dropdownalert'
+
+import { AppTitle } from '../../constants/AppTitle'
 const { height, width } = Dimensions.get('window')
 const WINDOW_WIDTH = Dimensions.get('window').width
 const WINDOW_HEIGHT = Dimensions.get('window').height
@@ -121,7 +123,7 @@ class QRCodeAuth extends Component {
 
   bankIdToken() {
     this.setState({
-      bubbleSize: 15,
+      bubbleSize: 10,
       opacity: 0,
       loadingAuth: true
     })
@@ -210,7 +212,7 @@ class QRCodeAuth extends Component {
         opacity: 1,
         loadingAuth: false,
         QRtext: 'bankid:///?autostarttoken=' + Props.bankIdToken.autoStartToken,
-        QRSize: 200
+        QRSize: 150
       })
       debugger
 
@@ -294,24 +296,10 @@ class QRCodeAuth extends Component {
           </TouchableOpacity>
         </View>
         <View>
+          <AppTitle />
           <View
             style={{
-              justifyContent: 'center',
-              alignItems: 'center'
-            }}>
-            <View style={{ margin: WINDOW_HEIGHT / 30 }}>
-              <Image
-                style={{ width: WINDOW_WIDTH, height: WINDOW_HEIGHT / 2.2 }}
-                source={require('../../images/patients.png')}
-              />
-            </View>
-            <Text style={styles.textDesign}>{strings.qrAuthScreenString1}</Text>
-            <Text style={styles.textDesign}>
-              {strings.qrAuthScreenString2}{' '}
-            </Text>
-          </View>
-          <View
-            style={{
+              margin: 15,
               justifyContent: 'center',
               alignItems: 'center',
               backgroundColor: '#ECEFF1'
@@ -324,7 +312,7 @@ class QRCodeAuth extends Component {
                 value={this.state.QRtext}
                 size={this.state.QRSize}
                 bgColor="black"
-                fgColor="white"
+                fgColor="#ECEFF1"
               />
             </View>
           </View>

@@ -26,6 +26,7 @@ import { App_Constant } from '../../constants/Costant.js'
 import Icon from 'react-native-vector-icons/Ionicons'
 import { strings } from '../../constants/strings'
 import { AboutModal } from '../../constants/Modal'
+import { AppTitle } from '../../constants/AppTitle'
 const { height, width } = Dimensions.get('window')
 const WINDOW_WIDTH = Dimensions.get('window').width
 const WINDOW_HEIGHT = Dimensions.get('window').height
@@ -127,321 +128,68 @@ export default class Auth extends Component {
         style={{
           flex: 1,
           backgroundColor: '#ECEFF1',
-          alignItems: 'center'
+          paddingTop: WINDOW_HEIGHT / 10
         }}>
-        <Modal isVisible={this.state.languageModal}>
-          <View style={{ backgroundColor: '#fff', borderRadius: 20 }}>
-            <View>
-              <View style={{ flexDirection: 'row', padding: 20 }}>
-                <View style={{ flexDirection: 'row', alignItems: 'flex-end' }}>
-                  <Image
-                    style={{
-                      width: 66,
-                      height: 58,
-                      marginLeft: WINDOW_WIDTH / 20
-                    }}
-                    source={require('../../images/robot.png')}
-                  />
-                </View>
-
-                <View style={{ flexDirection: 'row' }}>
-                  <View
-                    style={{ flexDirection: 'row', alignItems: 'flex-end' }}>
-                    <Image
-                      style={{ position: 'absolute' }}
-                      source={require('../../images/receive.png')}
-                    />
-                  </View>
-                  <View
-                    style={{
-                      alignItems: 'center',
-                      maxWidth: WINDOW_WIDTH / 1.6,
-                      backgroundColor: '#83BFBC',
-                      overflow: 'hidden',
-                      borderRadius: 25,
-                      justifyContent: 'center',
-                      alignItems: 'center',
-                      marginLeft: 10
-                    }}>
-                    <Text
-                      style={{
-                        padding: 10,
-                        fontSize: 17,
-                        fontWeight: 'bold',
-                        color: '#fff'
-                      }}>
-                      {strings.languageModalString1}
-                    </Text>
-                  </View>
-                </View>
-              </View>
-
-              <FlatList
-                style={{ paddingTop: 10, marginBottom: 10 }}
-                ref={ref => (this.flatList = ref)}
-                keyExtractor={this._keyExtractor}
-                data={languageList}
-                renderItem={({ item, index }) => (
-                  <TouchableOpacity
-                    style={{
-                      flexDirection: 'row',
-                      justifyContent: 'center',
-                      alignItems: 'center',
-                      borderBottomColor: 'grey',
-                      borderBottomWidth: 1
-                    }}
-                    onPress={() => this.selectLanguage(index)}>
-                    <View style={globalStyle.radioButton}>
-                      {item.status ? (
-                        <Icon
-                          name="ios-radio-button-on"
-                          size={25}
-                          color="#008FAC"
-                        />
-                      ) : (
-                        <Icon
-                          name="ios-radio-button-off-outline"
-                          size={25}
-                          color="#94989C"
-                        />
-                      )}
-                    </View>
-                    <View style={globalStyle.optionsContainerView}>
-                      <View
-                        style={{
-                          flexDirection: 'row',
-
-                          alignItems: 'center'
-                        }}>
-                        <View>
-                          <Image
-                            style={{
-                              marginRight: 15,
-                              width: WINDOW_WIDTH / 20,
-                              height: WINDOW_HEIGHT / 40
-                            }}
-                            source={item.flagImage}
-                          />
-                        </View>
-                        <View>
-                          <Text
-                            style={{
-                              margin: 10,
-                              fontWeight: 'bold',
-                              fontSize: 20,
-                              color: 'grey'
-                            }}>
-                            {item.languages[language]}
-                          </Text>
-                        </View>
-                      </View>
-                    </View>
-                  </TouchableOpacity>
-                )}
-              />
-
-              <TouchableOpacity
-                disabled={this.props.loading}
-                style={{
-                  backgroundColor: '#61666B',
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                  alignSelf: 'center',
-                  width: WINDOW_WIDTH / 2,
-                  height: 50,
-                  margin: 20,
-                  borderRadius: 30
-
-                  // marginTop: 20
-                }}
-                onPress={() => this.hideShowModel()}>
-                <Text
-                  style={{
-                    fontWeight: 'bold',
-                    color: '#fff',
-                    fontWeight: 'bold'
-                  }}>
-                  {strings.submit}
-                </Text>
-              </TouchableOpacity>
-            </View>
-          </View>
-        </Modal>
-        <ImageBackground
+        <AppTitle />
+        <View
           style={{
             width: WINDOW_WIDTH,
-            height: WINDOW_HEIGHT / 2,
-            marginTop: WINDOW_HEIGHT / 10,
-            opacity: 0.15,
-            position: 'absolute'
-          }}
-          source={require('../../images/patients.png')}
-        />
-        <View
-          style={{
-            paddingTop: 25,
-            flexDirection: 'row',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            width: WINDOW_WIDTH
+
+            backgroundColor: '#fff'
           }}>
           <View>
-            <AboutModal />
-          </View>
-
-          <View
-            style={{
-              flexDirection: 'row',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-              width: WINDOW_WIDTH
-            }}>
-            <TouchableOpacity
-              style={{
-                marginLeft: 10,
-                flexDirection: 'row',
-                borderBottomColor: 'grey',
-                // borderBottomWidth: 1,
-                alignItems: 'center'
-              }}
-              onPress={() => this.hideShowModel()}>
-              <View>
-                <View>
-                  <Image
-                    style={{
-                      marginRight: 5,
-                      width: WINDOW_WIDTH / 20,
-                      height: WINDOW_HEIGHT / 40
-                    }}
-                    source={flag}
-                  />
-                </View>
-                {/* <View>
-                  <Text style={{ color: 'grey', fontWeight: 'bold' }}>
-                    {languageName}
-                  </Text>
-                </View> */}
-              </View>
-              <Icon
-                name="ios-arrow-down"
-                size={20}
-                color="grey"
-                style={{ marginLeft: 5, marginTop: 4 }}
-              />
-            </TouchableOpacity>
-          </View>
-        </View>
-        <View
-          style={{
-            justifyContent: 'center',
-            alignItems: 'center',
-
-            backgroundColor: 'transparent'
-          }}>
-          <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-            <Image style={{}} source={require('../../images/Vector.png')} />
-
-            <Text style={{ fontSize: 40, marginLeft: 20, color: 'grey' }}>
-              {strings.authScreenStrring1}
-            </Text>
-          </View>
-          <View style={{ margin: WINDOW_HEIGHT / 20 }}>
             <Text
               style={{
-                fontSize: 70,
-                marginLeft: 20,
-                color: 'grey',
-                fontWeight: 'bold'
-              }}>
-              {strings.authScreenStrring2}
-            </Text>
-          </View>
-          <View>
-            <Text style={styles.indexTextAlert}>
-              {strings.authScreenStrring3}
-            </Text>
-          </View>
-          <View>
-            <Text style={styles.indexTextAlert}>
-              {strings.authScreenStrring4}
-            </Text>
-          </View>
-        </View>
-
-        <View
-          style={{
-            justifyContent: 'center',
-            alignItems: 'center',
-            margin: WINDOW_HEIGHT / 18,
-            backgroundColor: 'transparent'
-          }}>
-          <View>
-            <Text style={styles.indexText}>{strings.authScreenStrring5} </Text>
-          </View>
-          <View>
-            <Text style={styles.indexText}>{strings.authScreenStrring6}</Text>
-          </View>
-          <View>
-            <Text style={styles.indexText}> {strings.authScreenStrring7}</Text>
-          </View>
-        </View>
-        <TouchableOpacity
-          disabled={this.state.loadingAuth}
-          onPress={() => {
-            Actions.QRCodeAuth({ routePage: 'PersonalDetail' })
-          }}>
-          <View style={[styles.buttonDesign, { flexDirection: 'row' }]}>
-            <Text
-              style={{
+                margin: 20,
+                fontSize: 17,
                 fontWeight: 'bold',
-                fontSize: 40,
-
-                color: 'grey'
+                color: '#83BFBC'
               }}>
-              {strings.authScreenStrring8}
-            </Text>
-            <Image
-              style={{ marginLeft: 30 }}
-              source={require('../../images/logo.png')}
-            />
-          </View>
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          disabled={this.state.loadingAuth}
-          onPress={() => {
-            Actions.CenturySelection()
-          }}>
-          <View style={[styles.buttonDesign, { flexDirection: 'row' }]}>
-            <Text
-              style={{
-                fontWeight: 'bold',
-                fontSize: 40,
-
-                color: 'grey'
-              }}>
-              {strings.authScreenStrring9}
+              User login Menu
             </Text>
           </View>
-        </TouchableOpacity>
 
-        {/* <TouchableOpacity
+          <TouchableOpacity
             disabled={this.state.loadingAuth}
             onPress={() => {
-              Actions.StaffSection()
+              Actions.CenturySelection()
             }}>
-            <View style={[styles.buttonDesign, { flexDirection: 'row' }]}>
-              <Text
+            <View
+              style={{
+                flexDirection: 'row',
+                justifyContent: 'space-between',
+                alignItems: 'center'
+              }}>
+              <View
                 style={{
-                  fontWeight: 'bold',
-                  fontSize: 40,
+                  flexDirection: 'row',
 
-                  color: 'grey'
+                  alignItems: 'center'
                 }}>
-                STAFF SECTION
-              </Text>
+                <Image
+                  style={{ marginLeft: 20 }}
+                  source={require('../../images/logo.png')}
+                />
+                <Text
+                  style={{
+                    fontSize: 15,
+                    margin: 10,
+                    color: 'grey'
+                  }}>
+                  {strings.authScreenStrring8}
+                </Text>
+              </View>
+              <View>
+                <Icon
+                  style={{ margin: 20 }}
+                  name="ios-arrow-forward"
+                  size={20}
+                  color="grey"
+                />
+              </View>
             </View>
-          </TouchableOpacity> */}
+          </TouchableOpacity>
+        </View>
       </View>
     )
   }

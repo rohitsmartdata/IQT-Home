@@ -25,6 +25,8 @@ import RadioTypeAnswer2 from './containers/RadioTypeAnswer2'
 import CenturySelection from './containers/CenturySelection'
 import Auth from './containers/Auth'
 import HomeScreen from './containers/HomeScreen'
+import HomeScreen1 from './containers/HomeScreen1'
+import HomeScreen2 from './containers/HomeScreen2'
 import QRCodeAuth from './containers/QRCodeAuth'
 import PersonalNumber from './containers/PersonalNumber'
 import LongDescriptionType from './containers/LongDescriptionType'
@@ -121,9 +123,10 @@ class RouterComponent extends Component {
           {/* <Scene
             gesturesEnabled={false}
             hideNavBar
-            key="HomeScreen"
-            component={HomeScreen}
+            key="HomeScreen1"
+            component={HomeScreen1}
           /> */}
+
           {/*  <Scene gesturesEnabled={false} hideNavBar key="PersonalDetail" component={PersonalDetail} /> */}
 
           <Scene
@@ -141,6 +144,7 @@ class RouterComponent extends Component {
                 key="Auth"
                 component={Auth}
               />
+
               <Scene
                 gesturesEnabled={false}
                 hideNavBar
@@ -201,7 +205,12 @@ class RouterComponent extends Component {
             key="CenturySelection"
             component={CenturySelection}
           />
-
+          <Scene
+            gesturesEnabled={false}
+            hideNavBar
+            key="HomeScreen2"
+            component={HomeScreen2}
+          />
           <Scene
             gesturesEnabled={false}
             hideNavBar
@@ -220,8 +229,8 @@ class RouterComponent extends Component {
               <Scene
                 gesturesEnabled={false}
                 hideNavBar
-                key="HomeScreen"
-                component={HomeScreen}
+                key="HomeScreen1"
+                component={HomeScreen1}
               />
 
               <Scene

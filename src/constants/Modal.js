@@ -57,10 +57,10 @@ export class LogoutModal extends Component {
               borderRadius: 20,
               justifyContent: 'center',
               alignItems: 'center',
-              width: WINDOW_WIDTH / 2,
+              width: WINDOW_WIDTH / 1.3,
               padding: 20
             }}>
-            <Text style={{ fontSize: 25, fontWeight: 'bold', color: 'grey' }}>
+            <Text style={{ fontSize: 17, fontWeight: 'bold', color: 'grey' }}>
               {strings.logoutModalString1}{' '}
             </Text>
 
@@ -69,7 +69,7 @@ export class LogoutModal extends Component {
                 <View style={styles.logoutModalView}>
                   <Text
                     style={{
-                      fontSize: 20,
+                      fontSize: 17,
                       fontWeight: 'bold',
                       color: '#fff'
                     }}>
@@ -83,7 +83,7 @@ export class LogoutModal extends Component {
                 <View style={styles.logoutModalView}>
                   <Text
                     style={{
-                      fontSize: 20,
+                      fontSize: 17,
                       fontWeight: 'bold',
                       color: '#fff'
                     }}>
@@ -98,17 +98,23 @@ export class LogoutModal extends Component {
           <View
             style={{
               flexDirection: 'row',
-              alignItems: 'center'
+              alignItems: 'center',
+              margin: 20
             }}>
-            <Text style={{ padding: 10, color: 'grey', fontWeight: 'bold' }}>
+            <Icon
+              name="ios-arrow-back"
+              size={23}
+              color="#83BFBC"
+              style={{ marginRight: 20 }}
+            />
+            <Text
+              style={{
+                fontSize: 17,
+                fontWeight: 'bold',
+                color: '#83BFBC'
+              }}>
               {strings.logout}
             </Text>
-            <Icon
-              name="ios-log-out"
-              size={25}
-              color="grey"
-              style={{ marginRight: 10, marginTop: 4 }}
-            />
           </View>
         </TouchableOpacity>
       </View>
@@ -194,11 +200,10 @@ const styles = StyleSheet.create({
   logoutModalView: {
     marginBottom: 10,
     backgroundColor: '#61666B',
-    paddingLeft: 20,
-    paddingRight: 20,
-    paddingTop: 10,
-    paddingBottom: 10,
-
-    borderRadius: 10
+    width: WINDOW_WIDTH / 4,
+    height: WINDOW_HEIGHT / 20,
+    borderRadius: 10,
+    alignItems: 'center',
+    justifyContent: 'center'
   }
 })

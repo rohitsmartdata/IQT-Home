@@ -29,6 +29,8 @@ import Icon from 'react-native-vector-icons/Ionicons'
 import Accordion from 'react-native-collapsible/Accordion'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
+
+import { AppTitle } from '../../constants/AppTitle'
 import Loader from 'react-native-modal-loader'
 import {
   getQues,
@@ -103,7 +105,7 @@ var SECTIONS = []
 
 const toNumber = str => Number(str)
 const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 })
-class HomeScreen extends Component {
+class HomeScreen1 extends Component {
   constructor(props) {
     super(props)
 
@@ -115,8 +117,8 @@ class HomeScreen extends Component {
       abc: '',
       languageModal: false,
       active: true,
-      text: '180000',
-      loaderLoading: true
+      text: '180000'
+      // loaderLoading: true
     }
   }
   onAction = active => {
@@ -124,7 +126,7 @@ class HomeScreen extends Component {
       console.log(active)
     } else {
       debugger
-      if (Actions.currentScene == 'HomeScreen') {
+      if (Actions.currentScene == 'HomeScreen1') {
         AsyncStorage.setItem('name', '')
         AsyncStorage.setItem('createQuesId', '')
         AsyncStorage.setItem('againQuesCheck', '')
@@ -297,8 +299,8 @@ class HomeScreen extends Component {
       this.setState({ userDetails: JSON.parse(value) })
     )
 
-    this.setState({ loaderLoading: true })
-    this.props.getHomeScreenList()
+    // this.setState({ loaderLoading: true })
+    //  this.props.getHomeScreenList()
   }
 
   componentWillReceiveProps(Props) {
@@ -529,7 +531,7 @@ class HomeScreen extends Component {
           <View
             style={{
               flex: 0,
-              paddingTop: 25,
+              paddingTop: 30,
               flexDirection: 'row',
               alignItems: 'center',
               justifyContent: 'space-between',
@@ -538,42 +540,149 @@ class HomeScreen extends Component {
             <View
               style={{
                 flexDirection: 'row',
-                alignItems: 'center'
+                alignItems: 'center',
+                marginLeft: 20
               }}>
-              <AboutModal />
+              <Icon name="ios-menu" size={25} color="grey" />
             </View>
             <View style={{ flexDirection: 'column', alignItems: 'center' }}>
+              <Text
+                style={{
+                  color: 'lightgrey',
+                  fontSize: 12,
+                  fontWeight: 'bold'
+                }}>
+                {this.state.userDetails.ssn}
+              </Text>
               <Text style={{ color: 'grey', fontSize: 12, fontWeight: 'bold' }}>
                 {this.state.userDetails.firstName} {''}
                 {this.state.userDetails.lastName}
               </Text>
-              <Text style={{ color: 'grey', fontSize: 12, fontWeight: 'bold' }}>
-                {this.state.userDetails.ssn}
-              </Text>
             </View>
-            <View>
-              <LogoutModal />
+
+            <View
+              style={{
+                flexDirection: 'row',
+                alignItems: 'center'
+              }}>
+              <Image style={{}} source={require('../../images/help.png')} />
+              <Image
+                style={{ marginRight: 10 }}
+                source={require('../../images/Group.png')}
+              />
             </View>
           </View>
 
           <View
             style={{
               flex: 1,
-              backgroundColor: '#fff',
-              padding: WINDOW_HEIGHT / 40
+              marginTop: WINDOW_HEIGHT / 60,
+              backgroundColor: '#ECEFF1'
             }}>
-            <Text>{this.props.test}</Text>
-            <ScrollView>
-              <Accordion
-                underlayColor={'white'}
-                sections={SECTIONS}
-                activeSections={this.state.activeSections}
-                renderHeader={this._renderHeader}
-                renderContent={this._renderContent}
-                onChange={this._updateSections}
-              />
-            </ScrollView>
-            <DropdownAlert ref={ref => (this.dropdown = ref)} />
+            <AppTitle />
+            <View
+              style={{
+                width: WINDOW_WIDTH,
+
+                backgroundColor: '#fff'
+              }}>
+              <LogoutModal />
+
+              <TouchableOpacity
+                disabled={this.state.loadingAuth}
+                onPress={() => {
+                  Actions.HomeScreen2()
+                }}>
+                <View
+                  style={{
+                    flexDirection: 'row',
+                    justifyContent: 'space-between',
+                    alignItems: 'center'
+                  }}>
+                  <View
+                    style={{
+                      flexDirection: 'row',
+
+                      alignItems: 'center'
+                    }}>
+                    <Image
+                      style={{ marginLeft: 20 }}
+                      source={require('../../images/hospital.png')}
+                    />
+                    <Text
+                      style={{
+                        fontSize: 15,
+                        margin: 10,
+                        color: 'grey'
+                      }}>
+                      I need medical help
+                    </Text>
+                  </View>
+                  <View>
+                    <Icon
+                      style={{ margin: 20 }}
+                      name="ios-arrow-forward"
+                      size={20}
+                      color="grey"
+                    />
+                  </View>
+                </View>
+              </TouchableOpacity>
+            </View>
+            <View
+              style={{
+                backgroundColor: '#fff',
+                marginTop: WINDOW_HEIGHT / 20,
+                flexDirection: 'row',
+                justifyContent: 'space-between',
+                alignItems: 'center'
+              }}>
+              <View
+                style={{
+                  flexDirection: 'row',
+
+                  alignItems: 'center'
+                }}>
+                <Image
+                  style={{ marginLeft: 20 }}
+                  source={require('../../images/email.png')}
+                />
+                <Text
+                  style={{
+                    fontSize: 15,
+                    margin: 10,
+                    color: 'grey'
+                  }}>
+                  My Messages
+                </Text>
+              </View>
+              <View
+                style={{
+                  flexDirection: 'row',
+                  alignItems: 'center',
+                  justifyContent: 'center'
+                }}>
+                <View
+                  style={{
+                    backgroundColor: '#CA831B',
+                    borderRadius: 30,
+                    paddingLeft: 10,
+                    paddingRight: 10,
+                    paddingTop: 12,
+                    paddingBottom: 12,
+                    alignItems: 'center',
+                    justifyContent: 'center'
+                  }}>
+                  <Text style={{ color: '#fff', fontWeight: 'bold' }}>2/4</Text>
+                </View>
+                <Icon
+                  style={{ margin: 20 }}
+                  name="ios-arrow-forward"
+                  size={20}
+                  color="grey"
+                />
+              </View>
+            </View>
           </View>
         </View>
       </UserInactivity>
@@ -642,4 +751,4 @@ const styles = StyleSheet.create({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(HomeScreen)
+)(HomeScreen1)

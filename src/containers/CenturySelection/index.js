@@ -39,11 +39,11 @@ export default class CenturySelection extends Component {
         <View
           style={{
             backgroundColor: '#fff',
-            paddingTop: WINDOW_HEIGHT / 30,
+            paddingTop: WINDOW_HEIGHT / 25,
             paddingBottom: WINDOW_HEIGHT / 50
           }}>
           <TouchableOpacity
-            style={{ flexDirection: 'row' }}
+            style={{ flexDirection: 'row', alignItems: 'center' }}
             onPress={() => {
               this.setState({ QRtext: '' })
               Actions.pop()
@@ -54,7 +54,7 @@ export default class CenturySelection extends Component {
               size={25}
               color="#008FAC"
             />
-            <Text style={{ fontSize: 20, color: '#83BFBC', marginLeft: 10 }}>
+            <Text style={{ fontSize: 17, color: '#83BFBC', marginLeft: 10 }}>
               {strings.back}
             </Text>
           </TouchableOpacity>
@@ -67,7 +67,7 @@ export default class CenturySelection extends Component {
               backgroundColor: '#ECEFF1',
               marginBottom: WINDOW_HEIGHT / 90
             }}>
-            <Text style={{ fontSize: 35, color: 'grey' }}>
+            <Text style={{ fontSize: 20, color: 'grey' }}>
               {strings.centuryScreenString1}
             </Text>
           </View>
@@ -78,7 +78,7 @@ export default class CenturySelection extends Component {
               backgroundColor: '#ECEFF1',
               marginBottom: WINDOW_HEIGHT / 10
             }}>
-            <Text style={{ fontSize: 35, color: 'grey' }}>
+            <Text style={{ fontSize: 20, color: 'grey' }}>
               {strings.centuryScreenString2}
             </Text>
           </View>
@@ -89,7 +89,7 @@ export default class CenturySelection extends Component {
               backgroundColor: '#ECEFF1',
               marginBottom: WINDOW_HEIGHT / 10
             }}>
-            <Text style={{ fontSize: 30, fontWeight: 'bold', color: 'grey' }}>
+            <Text style={{ fontSize: 20, fontWeight: 'bold', color: 'grey' }}>
               {strings.centuryScreenString3}
             </Text>
           </View>
@@ -109,7 +109,7 @@ export default class CenturySelection extends Component {
               }}>
               <View>
                 <Text
-                  style={{ fontSize: 40, fontWeight: 'bold', color: 'grey' }}>
+                  style={{ fontSize: 25, fontWeight: 'bold', color: 'grey' }}>
                   1900
                 </Text>
               </View>
@@ -123,7 +123,7 @@ export default class CenturySelection extends Component {
               }}>
               <View>
                 <Text
-                  style={{ fontSize: 40, fontWeight: 'bold', color: 'grey' }}>
+                  style={{ fontSize: 25, fontWeight: 'bold', color: 'grey' }}>
                   2000
                 </Text>
               </View>
